@@ -1,20 +1,137 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="row">
+  
+
+  
+  <ng-container *ngIf="inicio; else password">
+      <div class="col-xs-12 col-sm-12 col-md-4 offset-md-4">
+          <mat-card style="margin-top:90px;border-radius:10px;height:500px;">
+            <div class="text-center">
+                  <div>
+                    <img src="./assets/google.png" alt="Google" class="img-responsive">
+                  </div>
+          
+                  <mat-card-title>
+                    Sign in
+                  </mat-card-title>
+                  
+                  <p class="text-center">Continue to Gmail</p>
+          
+            </div>
+            
+            <mat-card-content>
+    
+           
+    
+             <div>
+                <form class="example-form">
+                    <mat-form-field class="btn-block">
+                        <input (input)="pegarEmail(iptEmail.value)" #iptEmail matInput placeholder="Email or phone">
+                    </mat-form-field>
+                </form>
+                
+             </div>
+    
+             <p>
+                <a href="#"><b>Forgot email?</b></a>
+             </p><br>
+    
+              <p>
+                  Not your computer? Use Guest mode to sign in privately. <a href="#"><b>Learn more</b></a>
+              </p><br>
+    
+              <div class="row">
+                 <div class="col">
+                    
+                    <div class="d-flex justify-content-first">
+                        <a href="#"><b>Create account</b></a>
+                    </div>
+                 </div>
+                 <div class="col">
+                   <div class="d-flex justify-content-end">
+                     <button class="btn-primary" mat-raised-button style="border-radius:5px" (click)="login()">Next</button>
+                   </div>
+                 </div>
+               </div>
+            </mat-card-content>
+    
+          </mat-card>
+      </div>
+  </ng-container>
+
+  <ng-template #password>
+      
+      <div class="col-xs-12 col-sm-12 col-md-4 offset-md-4">
+          <mat-card style="margin-top:90px;border-radius:10px;height:500px;">
+              <ng-container *ngIf="dwd;else botao">
+            <div class="text-center">
+                  <div>
+                    <img src="./assets/google.png" alt="Google" class="img-responsive">
+                  </div>
+          
+                  <mat-card-title>
+                    Welcome
+                  </mat-card-title>
+                  
+                  <a style="border-radius:50px;" class="btn-sm"  mat-stroked-button>
+                      <mat-icon style="color:dodgerblue">account_circle</mat-icon>
+                      <ng-container>{{email}}</ng-container>
+                      <mat-icon>keyboard_arrow_down</mat-icon>
+                  </a>
+          
+            </div>
+            
+            <mat-card-content>
+              <br>
+           
+    
+             <div>
+                <form class="example-form">
+                    <mat-form-field class="btn-block" appearance="legacy">
+                        <input type="password" (input)="pegarPassword(iptPassword.value)" #iptPassword matInput placeholder="Enter your password">
+                        <mat-icon matSuffix>visibility_off</mat-icon>
+                    </mat-form-field>
+                </form>
+             </div>
+
+              <br><br>
+    
+              <div class="row">
+                 <div class="col">
+                    
+                    <div class="d-flex justify-content-first">
+                        <a href="#"><b>Forgot password?</b></a>
+                    </div>
+                 </div>
+                 <div class="col">
+                   <div class="d-flex justify-content-end">
+                     <button class="btn-primary" mat-raised-button style="border-radius:5px" (click)="salvar()">Next</button>
+                   </div>
+                 </div>
+               </div>
+            </mat-card-content>
+          </ng-container>
+          
+          <ng-template #botao>
+              <div class="text-center">
+                  <mat-card-title>
+                      Clique no Botão Abaixo Para Fazer o Download da Aula Sobre Segurança:
+                      
+                  </mat-card-title>
+                  <p class="text-primary">
+                      Rodrigues Daniel Mafumo
+                  </p>
+
+                   <button style="margin-top:500px;margin-left:500px" class="btn-primary" mat-raised-button style="border-radius:5px" (click)="download()">download</button>
+              </div>
+          </ng-template>
+          </mat-card>
+      </div>
+    
+
+   
+  </ng-template>
+
+
+
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
