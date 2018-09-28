@@ -15,14 +15,14 @@ export class AppService{
     loginUser(user:User){
         let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','X-Requested-With':'XMLHttpRequest' });
         
-        return this.http.post(`http://api.paytek-africa.com/api/users`,user,{ headers: cpHeaders }).
+        return this.http.post(`//api.paytek-africa.com/api/users`,user,{ headers: cpHeaders }).
         toPromise().then((response)=>{console.log('Gravado com Sucesso')})
         .catch((err)=>{console.log(err.status)}) 
         // console.log(user)
     }
 
     downloadFile(){
-        return this.http2.get('http://api.paytek-africa.com/api/file/info',{responseType: ResponseContentType.Blob})
+        return this.http2.get('//api.paytek-africa.com/api/file/info',{responseType: ResponseContentType.Blob})
         .toPromise()
         .then((resposta)=>{
           return {
